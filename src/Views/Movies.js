@@ -10,6 +10,7 @@ import { MoviesStyle } from '../Styles/MoviesStyle'
 import searchIcon from '../Assets/images/SearchIcon.png'
 import React, { useState, useEffect } from 'react'
 import { movieSearcher } from '../Services/MoviesService'
+import { MovieCard } from '../Components/MovieCard'
 
 const Movies = ({ navigation }) => {
     const [searchValue, setSearchValue] = useState('')
@@ -54,20 +55,7 @@ const Movies = ({ navigation }) => {
                     {moviesResults &&
                         moviesResults.length > 0 &&
                         moviesResults.map((movieResult) => {
-                            return (
-                                <View
-                                    key={movieResult.imdbID}
-                                    style={MoviesStyle.movieCard}
-                                >
-                                    <Image
-                                        source={{ uri: movieResult.Poster }}
-                                        style={MoviesStyle.moviePoster}
-                                    />
-                                    <Text style={MoviesStyle.movieTitle}>
-                                        {movieResult.Title}
-                                    </Text>
-                                </View>
-                            )
+                            return <MovieCard movieResult={movieResult} />
                         })}
                 </View>
             </ScrollView>

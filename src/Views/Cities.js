@@ -1,6 +1,17 @@
 import { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity, TextInput } from 'react-native'
+import {
+    View,
+    Text,
+    TouchableOpacity,
+    TextInput,
+    ScrollView,
+    ActivityIndicator,
+    SectionList,
+} from 'react-native'
 import { getCities } from '../Services/CitiesService'
+import { CitiesStyle } from '../Styles/CitiesStyle'
+import { CityCard } from '../Components/CityCard'
+import { Loader } from '../Components/Loader'
 
 const Cities = ({ navigation }) => {
     const [citySearched, setCitySearched] = useState('')
@@ -8,8 +19,10 @@ const Cities = ({ navigation }) => {
     const [isLoading, setIsLoading] = useState(false)
 
     function handleCitySearch() {
+        setIsLoading(true)
         getCities(citySearched).then((res) => {
             setCitiesList(res)
+            setIsLoading(false)
         })
     }
 
@@ -20,20 +33,24 @@ const Cities = ({ navigation }) => {
     }, [citySearched])
 
     return (
-        <View>
-            <Text> Rechercher une ville </Text>
+        <View style={CitiesStyle.container}>
+            <Text style={CitiesStyle.title}> Rechercher une ville </Text>
+            <TextInput
+                style={CitiesStyle.searchInput}
+                onChangeText={setCitySearched}
+                placeholder="Nom de la ville à rechercher"
+            />
+            {isLoading && <Loader />}
 
-            <TextInput onChangeText={setCitySearched} />
-
-            {citiesList &&
-                citiesList.length > 0 &&
-                citiesList.map((city) => {
-                    return (
-                        <View key={city.properties.id}>
-                            <Text>{city.properties.label}</Text>
-                        </View>
-                    )
-                })}
+            <ScrollView>
+                <View style={CitiesStyle.cityContainer}>
+                    {citiesList &&
+                        citiesList.length > 0 &&
+                        citiesList.map((city) => {
+                            return <CityCard city={city} />
+                        })}
+                </View>
+            </ScrollView>
 
             <TouchableOpacity
                 onPress={() => {
