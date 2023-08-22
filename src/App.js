@@ -12,6 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Home from './Views/Home'
 import Cities from './Views/Cities'
 import Movies from './Views/Movies'
+import Pictures from './Views/Pictures'
 
 function App() {
     const Stack = createNativeStackNavigator()
@@ -39,6 +40,14 @@ function App() {
                     <Stack.Screen
                         name="movies"
                         component={Movies}
+                        options={{
+                            animation: 'slide_from_left',
+                            headerShown: false,
+                        }}
+                    />
+                    <Stack.Screen
+                        name="pictures"
+                        component={Pictures}
                         options={{
                             animation: 'slide_from_left',
                             headerShown: false,

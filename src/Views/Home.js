@@ -13,6 +13,13 @@ const Home = ({ navigation }) => {
             >
                 <Text>Aller vers Cities</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate('pictures')
+                }}
+            >
+                <Text>Aller vers Pictures</Text>
+            </TouchableOpacity>
         </View>
     )
 }

@@ -46,4 +46,32 @@ export const CitiesStyle = (StyleSheet.createstyle = StyleSheet.create({
         marginHorizontal: '5%',
         marginVertical: 20,
     },
+    gpsContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '50%',
+        marginLeft: '25%',
+    },
+    gpsData: {
+        fontSize: 14,
+        color: '#fff',
+    },
+    temperatureContainer: {
+        width: '70%',
+        marginLeft: '15%',
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+    },
+    temperature: {
+        width: '100%',
+        fontSize: 32,
+        color: '#fff',
+        textAlign: 'center',
+    },
+    temperatureImage: {
+        width: '100%',
+        height: 200,
+    },
 }))
