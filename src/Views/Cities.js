@@ -15,6 +15,7 @@ import { CityCard } from '../Components/CityCard'
 import { Loader } from '../Components/Loader'
 
 import Geolocation from '@react-native-community/geolocation'
+import { NavBar } from '../Components/NavBar'
 
 const Cities = ({ navigation }) => {
     const [citySearched, setCitySearched] = useState('')
@@ -110,6 +111,7 @@ const Cities = ({ navigation }) => {
             >
                 <Text>Aller vers Movies</Text>
             </TouchableOpacity>
+            <NavBar navigation={navigation} />
         </View>
     )
 }

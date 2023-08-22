@@ -4,7 +4,8 @@ import logoGallery from '../Assets/images/gallery.png'
 
 import { PicturesStyle } from '../Styles/Pictures'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { NavBar } from '../Components/NavBar'
 
 const Pictures = ({ navigation }) => {
     const [selectedPictures, setSelectedPictures] = useState([])
@@ -63,6 +64,7 @@ const Pictures = ({ navigation }) => {
             >
                 <Text>Aller vers Home</Text>
             </TouchableOpacity>
+            <NavBar navigation={navigation} />
         </View>
     )
 }

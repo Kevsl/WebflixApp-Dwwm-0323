@@ -1,8 +1,9 @@
 import { View, Text, TouchableOpacity } from 'react-native'
+import { NavBar } from '../Components/NavBar'
 
 const Home = ({ navigation }) => {
     return (
-        <View>
+        <View style={{ height: '100%' }}>
             <Text>Home</Text>
             <Text>Je suis dans la page Home</Text>
 
@@ -20,6 +21,7 @@ const Home = ({ navigation }) => {
             >
                 <Text>Aller vers Pictures</Text>
             </TouchableOpacity>
+            <NavBar navigation={navigation} />
         </View>
     )
 }

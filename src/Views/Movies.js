@@ -11,6 +11,7 @@ import searchIcon from '../Assets/images/SearchIcon.png'
 import React, { useState, useEffect } from 'react'
 import { movieSearcher } from '../Services/MoviesService'
 import { MovieCard } from '../Components/MovieCard'
+import { NavBar } from '../Components/NavBar'
 
 const Movies = ({ navigation }) => {
     const [searchValue, setSearchValue] = useState('')
@@ -67,6 +68,7 @@ const Movies = ({ navigation }) => {
             >
                 <Text>Aller vers Home</Text>
             </TouchableOpacity>
+            <NavBar navigation={navigation} />
         </View>
     )
 }
